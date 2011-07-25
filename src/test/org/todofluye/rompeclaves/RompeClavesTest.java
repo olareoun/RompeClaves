@@ -6,7 +6,7 @@ import java.math.BigInteger;
 import java.util.List;
 
 import org.junit.Test;
-import org.todofluye.ext.MiFactorial;
+import org.todofluye.math.Factorial;
 import org.todofluye.rompeclaves.frase.Frase;
 import org.todofluye.rompeclaves.frase.FraseVaciaException;
 
@@ -82,10 +82,10 @@ public class RompeClavesTest {
 	
 	private int dameElNumeroDeResultadosCorrecto(int numeroPalabras){
 		BigInteger resultado = BigInteger.ZERO;
-		BigInteger factorialN = MiFactorial.factorial(numeroPalabras);
+		BigInteger factorialN = Factorial.factorial(numeroPalabras);
 		for (int i = 1; i <= numeroPalabras; i++){
-			BigInteger factorialNmenosI = MiFactorial.factorial(numeroPalabras - i); 
-			BigInteger factorialI = MiFactorial.factorial(i);
+			BigInteger factorialNmenosI = Factorial.factorial(numeroPalabras - i); 
+			BigInteger factorialI = Factorial.factorial(i);
 			resultado = resultado.add(factorialN.divide(factorialI.multiply(factorialNmenosI)));
 		}
 		return resultado.intValue();
